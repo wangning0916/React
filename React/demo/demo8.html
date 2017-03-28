@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo8</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Examp = React.createClass({
+		//定义初始状态
+		getInitialState:function(){
+			return {liked:false}
+		},
+		//点击事件
+		handle:function(event){
+			this.setState({liked: !this.state.liked});
+		},
+		//组件输出
+		render:function(){
+			//通过状态的true和false来显示不同的文字
+			var text = this.state.liked ? 'like' : 'haven\'t liked';
+			return <p onClick={this.handle}>
+		        You {text} this. Click to toggle.
+		      </p>
+		}
+	});
+	//每次修改以后，自动调用 this.render 方法，再次渲染组件
+
+
+	ReactDOM.render(
+		<Examp></Examp>,
+		document.getElementById("demo")
+	);
+</script>
+</html>

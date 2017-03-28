@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React事件</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Content = React.createClass({
+		render:function(){
+			return (
+				<div>
+					<input type="text" value={this.props.name} onChange={this.props.update} />
+					<p>{this.props.name}</p>
+				</div>				
+			)
+		}
+	});
+	var Demo = React.createClass({
+		getInitialState:function(){
+			return {value:'事件'}
+		},
+		handle:function(event){
+			this.setState(
+				{value:event.target.value}
+			);
+		},
+		render:function(){
+			return (
+				<div><Content name={this.state.value} update={this.handle}></Content></div>
+			)
+		}
+	});
+	
+	var vm = ReactDOM.render(
+		<Demo></Demo>,
+		document.getElementById("demo")
+	);
+</script>
+</html>

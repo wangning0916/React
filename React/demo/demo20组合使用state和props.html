@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组合使用state和props</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>	
+</body>
+<script type="text/babel">
+	var Parent = React.createClass({
+		getInitialState:function(){
+			return {name:'父元素'}
+		},
+		render:function(){
+			return (
+				<div>
+					<Child1 title={this.state.name}></Child1>
+					<Child2 title={this.state.name}></Child2>
+				</div>
+			)
+		}
+	});
+	var Child1 = React.createClass({
+		render:function(){
+			return (
+				<h1>{this.props.title}</h1>
+			)
+		}
+	});
+	var Child2 = React.createClass({
+		render:function(){
+			return (
+				<h2>{this.props.title}</h2>
+			)
+		}
+	});
+	var vm = ReactDOM.render(
+		<Parent></Parent>,
+		document.getElementById("demo")
+	);
+</script>
+</html>

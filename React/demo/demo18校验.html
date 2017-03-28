@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>校验</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+
+	var Demo = React.createClass({
+		getDefaultProps:function(){
+			return {nameaa:123}
+		},
+		propTypes:{
+			//title:React.PropTypes.string.isRequired,
+			nameaa:React.PropTypes.number.isRequtred
+		},
+		render:function(){
+			return (
+				//<h1>{this.props.title}</h1>
+				<h1>{this.props.nameaa}</h1>
+			)
+		}
+	});	
+	var vm = ReactDOM.render(
+		<Demo title='123' nameaa="123"></Demo>,
+		document.getElementById("demo")
+	)
+</script>
+</html>

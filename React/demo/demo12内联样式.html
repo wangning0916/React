@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内联样式</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/babel">
+		var myStyle = {
+			color:'red',
+			fontSize:36
+		};
+		ReactDOM.render(
+			<h1 style={myStyle}>hello.world</h1>,
+			document.getElementById("demo")
+		);
+	</script>
+</body>
+</html>

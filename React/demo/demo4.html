@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo4</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var HelloMessage = React.createClass({
+		render:function(){
+			return <div><h1>{this.props.name}</h1><h2>{this.props.title}</h2></div>;
+		}
+	});
+	ReactDOM.render(
+		<HelloMessage name="world" title="hello"/>,
+		document.getElementById("demo")
+	);
+	//变量 HelloMessage 就是一个组件类。模板插入 <HelloMessage /> 时，会自动生成 HelloMessage 的一个实例
+	//组件的用法与原生的 HTML 标签完全一致，可以任意加入属性，比如 <HelloMessage name="John"> 
+	//就是 HelloMessage 组件加入一个 name 属性，值为 John。组件的属性可以在组件类的 this.props 对象上获取，
+	//比如 name 属性就可以通过 this.props.name 读取.
+
+	//组件类只能包含一个顶层标签，否则也会报错。既将h1和h2写在一个父层div里面，而不是两个并列
+</script>
+</html>

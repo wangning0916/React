@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo6</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	//创建组件
+	var List = React.createClass({
+		// 设置默认属性
+		getDefaultProps:function(){
+			return {
+				title : "123"
+			}
+		},
+		// 校验属性
+		propTypes:{
+			title:React.PropTypes.string.isRequired,
+		},
+		render:function(){
+			return <div>{this.props.title}</div> ;
+		}
+	});
+	//将组件添加到html中
+	ReactDOM.render(
+		<List></List>,
+		document.getElementById("demo")
+	);
+</script>
+</html>

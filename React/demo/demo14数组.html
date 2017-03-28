@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/babel">
+		var arr = ["hello","world"];
+		var arr2 = [<h1>123</h1>,<h2>456</h2>];
+		ReactDOM.render(
+			<div>
+				<div>{arr}</div>
+				<div>
+					{
+						arr.map(function(arr) {
+							return <p>{arr}</p>
+						})
+					}
+				</div>
+				<div>{arr2}</div>
+			</div>,
+			
+			document.getElementById("demo")
+		);
+	</script>
+</body>
+</html>

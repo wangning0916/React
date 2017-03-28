@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Demo = React.createClass({
+		render:function(){
+			return (<p>				
+				time is {this.props.date.toTimeString()}
+			</p>)
+		}
+	});
+	setInterval(function(){
+		var vm = ReactDOM.render(
+		<Demo date={new Date()}></Demo>,
+		document.getElementById("demo")
+	);
+	},500);
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组合实例</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Wrap = React.createClass({
+		render:function(){
+			return (
+				//必须有个父层标签,因为只能有一个顶层标签，否则会报错
+				<div>
+					<Child1 username={this.props.username}></Child1>
+					<Child2 username={this.props.username}></Child2>
+				</div>	
+			)
+		}
+	});
+	var Child1 = React.createClass({
+		render:function(){
+			return (<h1>{this.props.username}</h1>)
+		}
+	});
+	var Child2 = React.createClass({
+		render:function(){
+			return (<h2>{this.props.username}</h2>)
+		}
+	});
+	var vm =ReactDOM.render(
+		<Wrap username="abc"></Wrap>,
+		document.getElementById("demo")
+	)
+	
+</script>
+</html>

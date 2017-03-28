@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三元运算</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/babel">
+		var i = 2;
+		ReactDOM.render(
+			<h1>{i == 1?'True':'False'}</h1>,
+			document.getElementById("demo")
+		);
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生命周期</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Demo = React.createClass({
+		getInitialState:function(){
+			return {opacity:1}
+		},
+		componentDidMount:function(){
+			this.timer = setInterval(function(){
+				var opy = this.state.opacity;
+				opy = opy - 0.5;
+				if(opy < 0.1){
+					opy = 1;
+				}
+				this.setState({
+					opacity:opy
+				})
+			}.bind(this),1000);
+		},
+		render:function(){
+			return (
+				<div style={{opacity:this.state.opacity}}>
+					<h1>{this.props.title}</h1>
+				</div>
+			)
+		}
+	});
+	var vm = ReactDOM.render(
+		<Demo title="hello"></Demo>,
+		document.getElementById("demo")
+	);
+</script>
+</html>
+
+
+
+

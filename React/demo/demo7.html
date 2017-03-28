@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo7</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Examp = React.createClass({
+		handle:function(){
+			this.refs.abc.focus();
+			//object类型
+			//alert(this.refs.abc)
+		},
+		render:function(){
+			return <div>
+				<input type="text" ref="abc" />
+				<input type="button" value="点击" onClick={this.handle} />
+			</div>
+		}
+	});
+	ReactDOM.render(
+		<Examp></Examp>,
+		document.getElementById("demo")
+	);
+</script>
+</html>

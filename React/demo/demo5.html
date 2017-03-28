@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo5</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var List = React.createClass({
+		render:function(){
+			return <ol>
+				{
+					React.Children.map(this.props.children,function(child) {
+						return <li>{child}</li>
+					})
+				}
+			</ol>
+		}
+	});
+	ReactDOM.render(
+		<List>
+			<span>11111</span>
+			<span>22222</span>
+		</List>,
+		document.getElementById("demo")
+
+		//List 组件有两个 span 子节点，它们都可以通过 this.props.children 读取
+	);
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单与事件</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+	<script type="text/babel">
+		
+		var Demo = React.createClass({
+			getInitialState:function(){
+				return {value:"哈哈哈哈哈哈哈哈"};
+			},
+			change:function(event){
+				this.setState({value:event.target.value});
+			},
+			render:function(){
+				var value = this.state.value;
+				return <div>
+					<input type="text" value={value} onChange={this.change} />
+					<h3>{value}</h3>
+				</div>;
+			}
+		});
+		ReactDOM.render(
+			<Demo></Demo>,
+			document.getElementById("demo")
+		);
+	</script>
+</body>
+</html>

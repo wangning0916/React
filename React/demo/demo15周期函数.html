@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>周期函数</title>
+	<script type="text/javascript" src="js/react.js"></script>
+	<script type="text/javascript" src="js/react-dom.js"></script>
+	<script type="text/javascript" src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="demo"></div>
+</body>
+<script type="text/babel">
+	var Message = React.createClass({
+		getInitialState:function(){
+			return {count:1}
+		},
+		xunhuan:function(){
+			this.setState({count:this.state.count + 1});
+		},
+		componentDidMount:function(){
+			this.interval = setInterval(this.xunhuan,2000);
+		},
+		componentWillUnmount:fufnction(){
+			clearInterval(this.interval);
+		},
+		render:function(){
+			return <div>{this.state.count}</div>
+		}
+	});
+	ReactDOM.render(
+		<Message></Message>,
+		document.getElementById("demo")
+	);
+</script>
+</html>
